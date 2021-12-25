@@ -12,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Element {
 
+    private int id;
     private String name;
     private int price;
 }

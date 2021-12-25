@@ -21,6 +21,7 @@
             </tr>
             </thead>
             <tr th:each="elem : ${elements}">
+                <td th:text="${elem.id}"/>
                 <td th:text="${elem.name}"/>
                 <td th:text="${elem.price}"/>
             </tr>

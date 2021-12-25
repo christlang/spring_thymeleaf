@@ -6,23 +6,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class MappingController {
 
-    private List<Element> elements = new ArrayList<>();
+    private ElementStore elementStore;
 
-    @GetMapping("/example")
-    public String example(Model model) {
+    public MappingController(ElementStore elementStore) {
+        this.elementStore = elementStore;
+
 
         Element e = new Element();
         e.setName("Club Mate");
         e.setPrice(2000);
+        elementStore.getCreateNewElement(e);
+    }
 
-        model.addAttribute("element", e);
-        model.addAttribute("elements", elements);
+    @GetMapping("/example")
+    public String example(Model model) {
+
+        model.addAttribute("element", elementStore.getElements().get(0));
+        model.addAttribute("elements", elementStore.getElements());
         model.addAttribute("newElement", new Element());
 
         return "mapping/mapping-controller";
@@ -34,7 +37,7 @@ public class MappingController {
         e.setName(name);
         e.setPrice(price);
 
-        elements.add(e);
+        elementStore.getCreateNewElement(e);
 
         return "redirect:/example";
     }
@@ -42,7 +45,7 @@ public class MappingController {
     @PostMapping("/example/new2")
     public String newElement2(@ModelAttribute("newElement") Element element) {
 
-        elements.add(element);
+        elementStore.getCreateNewElement(element);
 
         return "redirect:/example";
     }
