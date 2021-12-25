@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        Single element:
+        <span th:text="${element.name}"/>
+        <span th:text="${element.price}"/>
+
+    </div>
+    <div>
+        List
+        <table>
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Preis</td>
+            </tr>
+            </thead>
+            <tr th:each="elem : ${elements}">
+                <td th:text="${elem.name}"/>
+                <td th:text="${elem.price}"/>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        add Element with ModelAttributes
+        <form th:action="@{/example/new}" method="post">
+            <input type="text" name="name" />
+            <input type="number" name="price" />
+            <input type="submit" value="add" />
+        </form>
+    </div>
+
+    <div>
+        add Element with object
+        <form th:action="@{/example/new2}" th:object="${newElement}" method="post">
+            <input type="text" name="name" th:field="*{name}"/>
+            <input type="number" name="price" th:field="*{price}"/>
+            <input type="submit" value="add" />
+        </form>
+    </div>
+
+    <div>
+        add Element with modelAttribute
+        <form th:action="@{/example/new2}" method="post" th:modelAttribute="newElement">
+            <input type="text" name="name"/>
+            <input type="number" name="price"/>
+            <input type="submit" value="add" />
+        </form>
+    </div>
+
+</body>
+</html>
