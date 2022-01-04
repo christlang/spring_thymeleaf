@@ -14,3 +14,16 @@ spring init --dependencies=web,thymeleaf,devtools --package-name de.synyx.cl.lea
 * Webjars-Example: https://github.com/webjars/sample-spring_boot
 * Grid-Layout-Anleitung: https://getbootstrap.com/docs/5.1/layout/grid/
 * Flex-Box-Anleitung: https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
+
+
+## restricted access unter Thymeleaf
+
+* https://github.com/thymeleaf/thymeleaf/issues/809
+* Fehler sollte mit thymeleaf version 3.0.12 auftreten (tut es aber nicht) 
+
+```shell
+cd Service
+mvn spring-boot:run
+browser http://localhost:8080/examples/restrictedAccessThymeleafExample
+```
+
