@@ -13,19 +13,30 @@
     </div>
     <div>
         List
-        <table>
-            <thead>
-            <tr>
-                <td>Name</td>
-                <td>Preis</td>
-            </tr>
-            </thead>
-            <tr th:each="elem : ${elements}">
-                <td th:text="${elem.id}"/>
-                <td th:text="${elem.name}"/>
-                <td th:text="${elem.price}"/>
-            </tr>
-        </table>
+        <form th:action="@{/example/edit}" method="post" th:modelAttribute="editElement">
+            <table>
+                <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Preis</td>
+                </tr>
+                </thead>
+                <tr th:each="elem, iStat : ${elements}">
+                    <td th:text="${elem.id}"></td>
+                    <td>
+                        <span th:if="${iStat.index == editNr}"> <input type="text" name="name"/></span>
+                        <span th:unless="${iStat.index == editNr}" th:text="${elem.name}"></span>
+                    </td>
+                    <td>
+                        <span th:if="${iStat.index == editNr}"> <input type="number" name="price"/></span>
+                        <span th:unless="${iStat.index == editNr}" th:text="${elem.price}"></span>
+                    </td>
+
+                    <td th:if="${iStat.index == editNr}"><input type="submit" value="edit" /></td>
+
+                </tr>
+            </table>
+        </form>
     </div>
 
     <div>

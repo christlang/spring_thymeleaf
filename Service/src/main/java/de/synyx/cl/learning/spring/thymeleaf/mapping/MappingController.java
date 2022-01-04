@@ -2,9 +2,7 @@ package de.synyx.cl.learning.spring.thymeleaf.mapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MappingController {
@@ -22,11 +20,12 @@ public class MappingController {
     }
 
     @GetMapping("/example")
-    public String example(Model model) {
+    public String example(@RequestParam(value = "editNr", required = false, defaultValue="-1") int editNr, Model model) {
 
         model.addAttribute("element", elementStore.getElements().get(0));
         model.addAttribute("elements", elementStore.getElements());
         model.addAttribute("newElement", new Element());
+        model.addAttribute("editNr", editNr);
 
         return "mapping/mapping-controller";
     }
@@ -46,6 +45,14 @@ public class MappingController {
     public String newElement2(@ModelAttribute("newElement") Element element) {
 
         elementStore.getCreateNewElement(element);
+
+        return "redirect:/example";
+    }
+
+    @PostMapping("/example/edit")
+    public String editElement(@ModelAttribute("editElement") Element element) {
+
+        elementStore.getElements().set(element.getId(), element);
 
         return "redirect:/example";
     }
