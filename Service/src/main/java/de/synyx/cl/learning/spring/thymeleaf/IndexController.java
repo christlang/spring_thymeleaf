@@ -10,4 +10,9 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("/webjar")
+    public String webjar() {
+        return "webjar";
+    }
 }
