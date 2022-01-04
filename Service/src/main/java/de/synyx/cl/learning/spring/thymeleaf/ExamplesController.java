@@ -18,4 +18,10 @@ public class ExamplesController {
         model.addAttribute("index", index);
         return "examples/restrictedAccessThymeleafExample";
     }
+
+    @GetMapping("/examples/restrictedAccessThymeleafExampleSvg")
+    public String restrictedAccessThymeleafExampleSvg(@RequestParam(value="index", defaultValue = "0") String index,Model model) {
+        model.addAttribute("index", index);
+        return "/examples/restrictedAccessThymeleafExampleSVG";
+    }
 }
