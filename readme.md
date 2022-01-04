@@ -12,3 +12,5 @@ spring init --dependencies=web,thymeleaf,devtools --package-name de.synyx.cl.lea
 * Bootstrap - Anleitung: https://getbootstrap.com/docs/5.1/getting-started/introduction/
 * Spring-Boot Beispiel: https://spring.io/blog/2021/12/17/client-side-development-with-spring-boot-applications
 * Webjars-Example: https://github.com/webjars/sample-spring_boot
+* Grid-Layout-Anleitung: https://getbootstrap.com/docs/5.1/layout/grid/
+* Flex-Box-Anleitung: https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
