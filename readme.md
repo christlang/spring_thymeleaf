@@ -19,7 +19,11 @@ spring init --dependencies=web,thymeleaf,devtools --package-name de.synyx.cl.lea
 ## restricted access unter Thymeleaf
 
 * https://github.com/thymeleaf/thymeleaf/issues/809
-* Fehler sollte mit thymeleaf version 3.0.12 auftreten (tut es aber nicht) 
+  * mehr Details: https://github.com/thymeleaf/thymeleaf/issues/816#issuecomment-826401631
+* Fehler sollte mit thymeleaf version 3.0.12 auftreten
+  * aber nur in th:attr nicht in th:text
+* möglicher Workaround eigener Dialekt
+  * https://www.thymeleaf.org/doc/articles/sayhelloextendingthymeleaf5minutes.html
 
 ```shell
 cd Service
@@ -27,3 +31,4 @@ mvn spring-boot:run
 browser http://localhost:8080/examples/restrictedAccessThymeleafExample
 ```
 
+* StandardExpressionExecutionContext

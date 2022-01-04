@@ -6,8 +6,7 @@
         width="1000"
         height="1000"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:svg="http://www.w3.org/2000/svg"
-        xmlns:th="http://www.thymeleaf.org">
+        xmlns:svg="http://www.w3.org/2000/svg">
 
 
 
@@ -20,11 +19,10 @@
           y2="100"
           stroke="red"
           stroke-width="20"
-          th:attr="
-            y1=${new String[] { 100, 200, 300, 400, 500}[index]}
-            , y2=${new String[] { 100, 200, 300, 400, 500}[index]}
-            , stroke=${new String[] { 'red', 'blue', 'green', 'yellow', 'black'}[index]}"
-
+          svg:x1="${new String[] { 100, 200, 300, 400, 500}[index]}"
+          svg:y1="${new String[] { 100, 200, 300, 400, 500}[index]}"
+          svg:y2="${new String[] { 100, 200, 300, 400, 500}[index]}"
+          svg:stroke="${new String[] { 'red', 'green', 'yellow', 'blue', 'black'}[index]}"
     />
 
 </svg>
