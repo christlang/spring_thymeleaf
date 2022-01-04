@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <span th:text="${ new String[] { 'zero', 'one', 'two', 'three' }[index]}"></span>
+
+    <ul>
+        <li><a href="/examples/restrictedAccessThymeleafExample?index=0">index 0</a></li>
+        <li><a href="/examples/restrictedAccessThymeleafExample?index=1">index 1</a></li>
+        <li><a href="/examples/restrictedAccessThymeleafExample?index=2">index 2</a></li>
+    </ul>
+
+</body>
+</html>
